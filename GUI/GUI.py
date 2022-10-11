@@ -12,12 +12,12 @@ def gui():
 
     def update_status():
         current_status = status["text"]
-        if current_status == ("Working on Databases..."):
-            current_status = "Working on Cleaning data"
+        if current_status == ("Connecting to Database..."):
+            current_status = "Established Connection"
             os.system('python3 scripts/csv_2_dummies2.py')
 
-        elif current_status == ("Working on Cleaning data..."):
-            current_status = "Working on Model Training"
+        elif current_status == ("Established Connection..."):
+            current_status = "Almost Done"
             os.system('python3 scripts/train_model.py')
 
         else:
@@ -25,11 +25,11 @@ def gui():
         status["text"] = current_status
         root.after(1000, update_status)
         t = (round(time.time()) - round(start_time))
-        if t == 20:
+        if t == 15:
             root.destroy()
 
     def cancel():
-        root.destroy()
+        exit()
     root = tk.Tk()
     # position
     w = 500
@@ -44,7 +44,8 @@ def gui():
     root.configure(background='black')
     root.title("Working on Data")
     # text
-    status = tk.Label(root, text="Working on Databases", bg='#000', fg='#fff')
+    status = tk.Label(root, text="Connecting to Database",
+                      bg='#000', fg='#fff')
     status.grid(row=0, column=3, padx=100, pady=30)
     root.after(10, update_status)
     # Progressbar
