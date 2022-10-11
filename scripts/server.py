@@ -34,9 +34,8 @@ for i in range(timeout):
     fetchedPrice = list(recordPrice.find())
     pf = fetchedPrice[0]['price']
     l = get()
-    x = location, sqft, bath, bhk
-    y = str(l['location']), str(l['sqft']), str(
-        l['bath']), str(l['bhk'])
+    x = location
+    y = str(l['location'])
 
     if x != y:
         starttime = time.time()

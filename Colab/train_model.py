@@ -1,5 +1,5 @@
 def train():
-    f = open('./bhp.csv', 'r')
+    f = open('Proj/Colab/bhp.csv', 'r')
     c = f.readlines()
 
     fm = [line.split(',') for line in c]
