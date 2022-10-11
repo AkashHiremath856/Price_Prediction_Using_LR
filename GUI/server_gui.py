@@ -21,6 +21,7 @@ def server_gi():
         def stop():
             print('Stopping server')
             os.system("taskkill /f /im cmd.exe")
+            exit()
 
         def update_status1(step):
             progress.step(step)
