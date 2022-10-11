@@ -20,4 +20,4 @@ def predict(loc, sqft, bath, bhk):
     return sum+intercept
 
 
-# print(predict('7th Phase JP Nagar', 980.0, 2.0, 2.0))
+print(predict('Varthur', 1385.0, 2.0, 2))

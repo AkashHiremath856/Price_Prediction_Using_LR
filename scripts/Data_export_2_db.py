@@ -34,12 +34,11 @@ def insert():
     con.commit()
 
 
-insert()
-# try:
-#     cur.execute(
-#         "CREATE TABLE Bengaluru_House_Data(location,total_sqft,bath,price,bhk)")
-#     insert()
+try:
+    cur.execute(
+        "CREATE TABLE Bengaluru_House_Data(location,total_sqft,bath,price,bhk)")
+    insert()
 
-# except sqlite3.OperationalError:
-#     if cur.execute('select * from Bengaluru_House_Data') == []:
-#         insert()
+except sqlite3.OperationalError:
+    if cur.execute('select * from Bengaluru_House_Data') == []:
+        insert()
