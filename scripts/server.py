@@ -5,7 +5,7 @@ from predict import predict
 print('Server Running')
 
 key = 'helloworld'
-timeout = int(input('Enter Timeout value '))
+timeout = 10000
 
 req = 'mongodb+srv://Akash:{}@cluster0.6pagbip.mongodb.net/?retryWrites=true&w=majority'.format(
     key)
@@ -34,8 +34,9 @@ for i in range(timeout):
     fetchedPrice = list(recordPrice.find())
     pf = fetchedPrice[0]['price']
     l = get()
-    x = (location)
-    y = (str(l['location']))
+    x = location, sqft, bath, bhk
+    y = str(l['location']), str(l['sqft']), str(
+        l['bath']), str(l['bhk'])
 
     if x != y:
         starttime = time.time()

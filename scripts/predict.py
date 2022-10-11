@@ -3,12 +3,6 @@ from train_model import train
 fm, pred, coef, intercept = train()
 
 
-def retzero(l):
-    for i in range(l):
-        if l[i] == -0.0:
-            return 0.0
-
-
 def predict(loc, sqft, bath, bhk):
 
     location = fm[0].index(loc)
@@ -26,4 +20,4 @@ def predict(loc, sqft, bath, bhk):
     return sum+intercept
 
 
-print(predict('7th Phase JP Nagar', 980.0, 2.0, 2.0))
+# print(predict('7th Phase JP Nagar', 980.0, 2.0, 2.0))
