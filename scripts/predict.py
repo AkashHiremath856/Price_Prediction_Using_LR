@@ -20,4 +20,4 @@ def predict(loc, sqft, bath, bhk):
     return sum+intercept
 
 
-print(predict('Varthur', 1385.0, 2.0, 2))
+# print(predict('Anekal', 652.0, 2.0, 2))
