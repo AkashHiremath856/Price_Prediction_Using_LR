@@ -72,4 +72,6 @@ def train():
     for i in range(len(coef)):
         pred.append(0)
 
+    fm[0][-1] = fm[0][-1].strip('\n')
+    fm[0].pop(2)
     return fm, pred, coef, intercept

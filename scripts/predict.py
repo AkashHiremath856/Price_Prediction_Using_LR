@@ -4,7 +4,6 @@ fm, pred, coef, intercept = train()
 
 
 def predict(loc, sqft, bath, bhk):
-
     location = fm[0].index(loc)
     pred[0] = sqft
     pred[1] = bath
@@ -20,4 +19,4 @@ def predict(loc, sqft, bath, bhk):
     return sum+intercept
 
 
-# print(predict('Anekal', 652.0, 2.0, 2))
+print(predict('Balagere', 1210.0, 2.0, 2))
