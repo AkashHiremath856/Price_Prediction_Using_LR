@@ -19,4 +19,4 @@ def predict(loc, sqft, bath, bhk):
     return sum+intercept
 
 
-print(predict('Balagere', 1210.0, 2.0, 2))
+# print(predict('Balagere', 1210.0, 2.0, 2))
