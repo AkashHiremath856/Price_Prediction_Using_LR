@@ -1,11 +1,13 @@
 from pymongo import MongoClient
 import time
 from predict import predict
+# import sys
+
+# sys.setrecursionlimit(1000000)
 
 print('Server Running')
 
 key = 'helloworld'
-timeout = 10000
 
 req = 'mongodb+srv://Akash:{}@cluster0.6pagbip.mongodb.net/?retryWrites=true&w=majority'.format(
     key)
@@ -13,8 +15,6 @@ req = 'mongodb+srv://Akash:{}@cluster0.6pagbip.mongodb.net/?retryWrites=true&w=m
 client = MongoClient(req)
 db = client.get_database('PredictionData')
 recordPrice = db.results
-
-i = 0
 
 
 def get():
@@ -30,20 +30,29 @@ sqft = ' '
 bath = ' '
 bhk = ' '
 
-for i in range(timeout):
-    fetchedPrice = list(recordPrice.find())
-    pf = fetchedPrice[0]['price']
-    l = get()
-    x = location
-    y = str(l['location'])
 
-    if x != y:
+# def check(price_):
+#     if len(str(price_)) > 8:
+#         price_ = predict(location, sqft, bath, bhk)
+#         # check(price_)
+#     return price_
+
+
+i = 0
+
+for i in range(1000):
+    l = get()
+
+    if location != str(l['location']) or bath != l['bath'] or bhk != l['bhk']:
         starttime = time.time()
         location = str(l['location'])
         sqft = l['sqft']
         bath = l['bath']
         bhk = l['bhk']
-        print('not same')
+        # print('not same')
+
+        fetchedPrice = list(recordPrice.find())
+        pf = fetchedPrice[0]['price']
 
         i += 1
         if i == 1:
@@ -51,22 +60,33 @@ for i in range(timeout):
 
         # predict fun
         price_predicted = predict(location, sqft, bath, bhk)
-        print(price_predicted)
+        # price_predicted = check(price_)
+        print('pf', pf)
+        print('price_predicted', price_predicted)
+        if pf != price_predicted:
+            def write_pr(price_predicted):
+                recordPrice.replace_one(
+                    {'price': pf}, {'price': round(price_predicted, 3)})
 
-        # price
-        recordPrice.replace_one(
-            {'price': pf}, {'price': round(price_predicted, 3)})
+                log_time = '{} '.format(time.ctime())
+                log_args = '{},{},{},{} '.format(location, sqft, bath, bhk)
+                price_val = '{} \n'.format(
+                    str(round(price_predicted, ndigits=2)))
+                labels = '[time, location, sqft, bath, bhk, price]\n'
 
-        log_time = '{} '.format(time.ctime())
-        log_args = '{},{},{},{} '.format(location, sqft, bath, bhk)
-        price_val = '{} \n'.format(str(round(price_predicted, ndigits=2)))
-        labels = '[time, location, sqft, bath, bhk, price]\n'
+                with open('logs/logs.txt', 'a') as f:
+                    f.write(labels)
+                    f.write(log_time)
+                    f.write(str(log_args))
+                    f.write(price_val)
 
-        with open('logs/logs.txt', 'a') as f:
-            f.write(labels)
-            f.write(log_time)
-            f.write(str(log_args))
-            f.write(price_val)
+            # price
+            write_pr(price_predicted)
+
+        else:
+            price_predicted = predict(location, sqft, bath, bhk)
+            write_pr(price_predicted)
+
     else:
-        print('same')
+        # print('same')
         get()

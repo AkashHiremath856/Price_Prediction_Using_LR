@@ -1,9 +1,9 @@
 from train_model import train
 
-fm, pred, coef, intercept = train()
-
 
 def predict(loc, sqft, bath, bhk):
+    fm, pred, coef, intercept = train()
+
     location = fm[0].index(loc)
     pred[0] = sqft
     pred[1] = bath
@@ -16,7 +16,8 @@ def predict(loc, sqft, bath, bhk):
         l.append(pred[i]*coef[i])
     for lc in range(location):
         sum += l[lc]
-    return sum+intercept
+    s = 0
+    s = sum+intercept
+    return round(s, 3)
 
-
-print(predict('Yeshwanthpur', 1693.0, 3.0, 3))
+# print(predict('LB Shastri Nagar', 1500, 1, 4))
