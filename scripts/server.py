@@ -1,9 +1,6 @@
 from pymongo import MongoClient
 import time
 from predict import predict
-# import sys
-
-# sys.setrecursionlimit(1000000)
 
 print('Server Running')
 
@@ -30,14 +27,6 @@ sqft = ' '
 bath = ' '
 bhk = ' '
 
-
-# def check(price_):
-#     if len(str(price_)) > 8:
-#         price_ = predict(location, sqft, bath, bhk)
-#         # check(price_)
-#     return price_
-
-
 i = 0
 
 for i in range(1000):
@@ -60,7 +49,6 @@ for i in range(1000):
 
         # predict fun
         price_predicted = predict(location, sqft, bath, bhk)
-        # price_predicted = check(price_)
         print('pf', pf)
         print('price_predicted', price_predicted)
         if pf != price_predicted:

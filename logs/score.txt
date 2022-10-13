@@ -1,0 +1,5 @@
+Thu Oct 13 13:59:54 2022 Model Score from 20 Random Datas 80.633 
+Thu Oct 13 13:59:58 2022 Model Score from 20 Random Datas 81.054 
+Thu Oct 13 14:00:59 2022 Model Score from 20 Random Datas 90.093 
+Thu Oct 13 14:08:05 2022 Model Score from 20 Random Datas 83.95 
+Thu Oct 13 14:08:54 2022 Model Score from 20 Random Datas 90.078 

@@ -4,6 +4,8 @@ from tkinter import ttk
 import time
 start_time = time.time()
 
+os.system('python3 scripts/score.py')
+
 
 def gui():
     def update_status1(step):
