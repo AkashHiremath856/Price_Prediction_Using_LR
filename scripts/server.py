@@ -40,19 +40,6 @@ for i in range(1000):
         bhk = l['bhk']
         # print('not same')
 
-        fetchedPrice = list(recordPrice.find())
-        pf = fetchedPrice[0]['price']
-
-        i += 1
-        if i == 1:
-            continue
-
-        # predict fun
-        price_predicted = predict(location, sqft, bath, bhk)
-
-        print('pf', pf)
-        print('price_predicted', price_predicted)
-
         def write_pr(price_predicted):
             recordPrice.replace_one(
                 {'price': pf}, {'price': round(price_predicted, 3)})
@@ -69,7 +56,19 @@ for i in range(1000):
                 f.write(str(log_args))
                 f.write(price_val)
 
-            # price
+        fetchedPrice = list(recordPrice.find())
+        pf = fetchedPrice[0]['price']
+
+        i += 1
+        if i == 1:
+            continue
+
+        price_predicted = predict(location, sqft, bath, bhk)
+
+        # print('pf', pf)
+        # print('price_predicted', price_predicted)
+
+        # price
         if pf != price_predicted:
             write_pr(price_predicted)
 
