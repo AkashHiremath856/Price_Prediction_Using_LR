@@ -1,0 +1,16 @@
+[time, location, sqft, bath, bhk, price]
+Fri Oct 14 12:29:51 2022 Amruthahalli,2065,3,2 151.95 
+[time, location, sqft, bath, bhk, price]
+Fri Oct 14 12:43:56 2022 Bisuvanahalli,1875,1,2 141.03 
+[time, location, sqft, bath, bhk, price]
+Fri Oct 14 12:44:04 2022 Kengeri,1875,1,2 141.03 
+[time, location, sqft, bath, bhk, price]
+Fri Oct 14 12:44:13 2022 Kengeri,1875,4,2 130.57 
+[time, location, sqft, bath, bhk, price]
+Fri Oct 14 12:44:47 2022 Amruthahalli,1875,4,2 130.57 
+[time, location, sqft, bath, bhk, price]
+Fri Oct 14 12:45:06 2022 Yeshwanthpur,1875,4,2 130.57 
+[time, location, sqft, bath, bhk, price]
+Fri Oct 14 12:45:33 2022 Yeshwanthpur,2850,4,4 210.47 
+[time, location, sqft, bath, bhk, price]
+Fri Oct 14 12:46:03 2022 Kasturi Nagar,1010,4,4 37.2 

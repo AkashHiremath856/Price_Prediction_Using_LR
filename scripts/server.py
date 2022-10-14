@@ -49,26 +49,31 @@ for i in range(1000):
 
         # predict fun
         price_predicted = predict(location, sqft, bath, bhk)
+
         print('pf', pf)
         print('price_predicted', price_predicted)
-        if pf != price_predicted:
-            def write_pr(price_predicted):
-                recordPrice.replace_one(
-                    {'price': pf}, {'price': round(price_predicted, 3)})
 
-                log_time = '{} '.format(time.ctime())
-                log_args = '{},{},{},{} '.format(location, sqft, bath, bhk)
-                price_val = '{} \n'.format(
-                    str(round(price_predicted, ndigits=2)))
-                labels = '[time, location, sqft, bath, bhk, price]\n'
+        def write_pr(price_predicted):
+            recordPrice.replace_one(
+                {'price': pf}, {'price': round(price_predicted, 3)})
 
-                with open('logs/logs.txt', 'a') as f:
-                    f.write(labels)
-                    f.write(log_time)
-                    f.write(str(log_args))
-                    f.write(price_val)
+            log_time = '{} '.format(time.ctime())
+            log_args = '{},{},{},{} '.format(location, sqft, bath, bhk)
+            price_val = '{} \n'.format(
+                str(round(price_predicted, ndigits=2)))
+            labels = '[time, location, sqft, bath, bhk, price]\n'
+
+            with open('logs/logs.txt', 'a') as f:
+                f.write(labels)
+                f.write(log_time)
+                f.write(str(log_args))
+                f.write(price_val)
 
             # price
+        if pf != price_predicted:
+            write_pr(price_predicted)
+
+        elif pf != price_predicted:
             write_pr(price_predicted)
 
         else:
