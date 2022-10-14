@@ -1,9 +1,7 @@
-from random import randint
-from predict import predict
-import time
-
-
 def get_score():
+    from random import randint
+    from predict import predict
+    import time
 
     def score():
         f = open('scripts/Datasets/ds_without_dummies.csv', 'r')

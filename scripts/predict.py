@@ -19,5 +19,3 @@ def predict(loc, sqft, bath, bhk):
     s = 0
     s = sum+intercept
     return round(s, 3)
-
-# print(predict('LB Shastri Nagar', 1500, 1, 4))
