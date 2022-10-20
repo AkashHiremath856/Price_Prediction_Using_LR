@@ -64,6 +64,3 @@ def server_gi():
     B.config(height=2, width=12)
     B.grid(row=4, column=6, padx=200, pady=80)
     root.mainloop()
-
-
-server_gi()

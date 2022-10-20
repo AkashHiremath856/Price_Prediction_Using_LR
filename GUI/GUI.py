@@ -16,7 +16,8 @@ def gui():
         current_status = status["text"]
         if current_status == ("Connecting to Database..."):
             current_status = "Established Connection"
-            os.system('python3 scripts/csv_2_dummies2.py')
+            os.system(
+                'python3 scripts/Data_Cleaning/csv_2_dummies2.py')
 
         elif current_status == ("Established Connection..."):
             current_status = "Almost Done"
