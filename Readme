@@ -5,3 +5,8 @@ run 'pip3 install -r requirements.txt'
 provided download links below.
 
 Dataset - https://www.kaggle.com/amitabhajoy/bengaluru-house-price-data
+
+virtual env:
+pip3 install virtualenv
+virtualenv pp
+source pp/bin/activate
